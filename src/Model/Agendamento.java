@@ -30,11 +30,18 @@ public class Agendamento {
         this.servico = servico;
         this.valor = valor;
         try {
-            this.data = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(data);
+            this.data = new SimpleDateFormat("dd/MM/yyyy").parse(data);
                     } catch (ParseException ex) {
             Logger.getLogger(Agendamento.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public Agendamento(int id, Cliente cliente, Servico servico, float valor, String data, String observacao) {
+        this(id,cliente,servico,valor,data);
+        this.observacao = observacao;
+    }
+    
+    
 
     public int getId() {
         return id;
